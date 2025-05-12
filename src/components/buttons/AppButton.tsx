@@ -1,56 +1,55 @@
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
-import React, { FC } from 'react'
-import { vs, s } from 'react-native-size-matters'
-import AppText from '../texts/AppText'
-import { AppColors } from '../../styles/colors'
+import { StyleSheet, TextStyle, TouchableOpacity, ViewStyle } from "react-native";
+import React from "react";
+import { s, vs } from "react-native-size-matters";
+import AppText from "../texts/AppText";
+import { AppColors } from "../../styles/colors";
+
+// Define the types for the props
 interface AppButtonProps {
-    onPress: () => void,
-    title?: string,
-    disabled?: boolean,
-    loading?: boolean,
-    variant?: 'primary' | 'secondary' | 'tertiary',
-    style?: object,
-    textStyle?: object,
-    backgroundColor?: string,
-    textColor?: string,
-    styleTitle?: object
+  onPress: () => void; // Callback function for onPress event
+  title: string; // Title of the button
+  backgroundColor?: string; // Optional background color, defaults to AppColors.primary
+  textColor?: string; // Optional text color, defaults to AppColors.white
+  style?: ViewStyle | ViewStyle[]; // Optional custom styles for the button
+  styleTitle?: TextStyle | TextStyle[]; // Optional custom styles for the title text
+  disabled?: boolean; // Optional disabled flag
 }
-const AppButton: FC<AppButtonProps> = ({ onPress, title, backgroundColor = AppColors.primary, textColor = AppColors.white }, disabled = false) => {
-    return (
-        <TouchableOpacity onPress={onPress}
-            activeOpacity={0.8}
-            style={
-                [
-                    styles.button,
-                    { backgroundColor: disabled ? AppColors.disabledGray : backgroundColor },
-                ]
-            }
 
-
-        >
-
-            <AppText style={[styles.textTitle, { color: textColor }]}
-                variant="bold"
-            >{title}</AppText>
-
-        </TouchableOpacity>
-    )
-}
+const AppButton: React.FC<AppButtonProps> = ({
+  onPress,
+  title,
+  backgroundColor = AppColors.primary,
+  textColor = AppColors.white,
+  style,
+  styleTitle = StyleSheet.create({}),
+  disabled = false
+}) => {
+  return (
+    <TouchableOpacity
+      onPress={onPress}
+      activeOpacity={0.8}
+      style={[styles.button, { backgroundColor: disabled ? AppColors.disabledGray : backgroundColor }, style]}
+      disabled={disabled}
+    >
+      <AppText style={[styles.textTitle, { color: textColor }, styleTitle]} variant="bold">
+        {title}
+      </AppText>
+    </TouchableOpacity>
+  );
+};
 
 export default AppButton;
 
 const styles = StyleSheet.create({
-    button: {
-        width: '100%',
-        height: vs(40),
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: s(8),
-        alignSelf: 'center',
-    },
-    textTitle: {
-        fontSize: s(16),
-        color: 'white',
-        textAlign: 'center',
-    }
-})
+  button: {
+    width: "100%",
+    height: vs(40),
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: s(25),
+    alignSelf: "center",
+  },
+  textTitle: {
+    fontSize: s(16),
+  },
+});

@@ -5,18 +5,17 @@ import FlashMessage, { showMessage } from 'react-native-flash-message';
 import AppSafeView from './src/components/Views/AppSafeView';
 import AppButton from './src/components/buttons/AppButton';
 import AppTextInput from './src/components/inputs/AppTextInput';
+import SignInScreen from './src/screens/auth/SignInScreen';
+import SignUpScreen from './src/screens/auth/SignUpScreen';
+import AuthStack from './src/navigation/AuthStack';
+import { NavigationContainer } from '@react-navigation/native';
 
 export default function App() {
   return (
-    <>
+    <NavigationContainer>
       <FlashMessage position="top" style={{top: 0}} />
-      <AppSafeView style={styles.container}>      
-        <AppTextInput placeholder='Enter name' secureTextEntry={false} keyboardType='default' onChangeText={() => {
-
-        }}/>
-
-      </AppSafeView>
-    </>
+      <AuthStack />
+    </NavigationContainer>
 
   );
 }

@@ -1,11 +1,11 @@
-import { View, SafeAreaView, Platform, StatusBar, ViewStyle} from 'react-native'
+import { View, SafeAreaView, Platform, StatusBar, ViewStyle, StyleSheet} from 'react-native'
 import React, {FC} from 'react'
 import { AppColors } from '../../styles/colors';
 import { IS_ANDROID } from '../../constants/constants';
 
 interface AppSafeViewProps {
-    children: React.ReactNode,
-    style?: ViewStyle | ViewStyle[]
+  children: React.ReactNode,
+  style?: ViewStyle | ViewStyle[]
 }
 
 const AppSafeView: FC<AppSafeViewProps> = ({children, style}) => {
@@ -18,7 +18,7 @@ const AppSafeView: FC<AppSafeViewProps> = ({children, style}) => {
 
 export default AppSafeView;
 
-const styles = {
+const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     backgroundColor: AppColors.white,
@@ -27,4 +27,4 @@ const styles = {
     container: {
         flex: 1
     },
-}
+});
