@@ -1,0 +1,33 @@
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View } from 'react-native';
+import AppText from './src/components/texts/AppText';
+import FlashMessage, { showMessage } from 'react-native-flash-message';
+import AppSafeView from './src/components/Views/AppSafeView';
+import AppButton from './src/components/buttons/AppButton';
+import AppTextInput from './src/components/inputs/AppTextInput';
+
+export default function App() {
+  return (
+    <>
+      <FlashMessage position="top" style={{top: 0}} />
+      <AppSafeView style={styles.container}>      
+        <AppTextInput placeholder='Enter name' secureTextEntry={false} keyboardType='default' onChangeText={() => {
+
+        }}/>
+
+      </AppSafeView>
+    </>
+
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    paddingTop: 50,
+    paddingHorizontal: 20,
+  },
+});

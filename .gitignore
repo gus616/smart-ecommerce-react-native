@@ -1,0 +1,56 @@
+# macOS
+.DS_Store
+
+# Node modules
+node_modules/
+
+# Logs
+*.log
+yarn-debug.log*
+npm-debug.log*
+
+# React Native packager
+.expo/
+.expo-shared/
+metro-cache/
+react-native/packager-cache-*
+
+# Android
+android/.gradle/
+android/app/build/
+android/build/
+android/.idea/
+android/.cxx/
+android/local.properties
+
+# iOS
+ios/Pods/
+ios/Podfile.lock
+ios/DerivedData/
+ios/build/
+ios/*.xcworkspace
+ios/*.xcodeproj/project.xcworkspace/
+ios/*.xcodeproj/xcuserdata/
+
+# Watchman
+.watchmanconfig
+
+# Environment
+.env
+.env.*
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Test coverage
+coverage/
+
+# Misc
+npm-debug.log*
+yarn-error.log
+*.tgz
+*.lock
+*.orig
