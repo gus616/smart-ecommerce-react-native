@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, Image } from 'react-native'
 import React from 'react'
 
-import AppSafeView from '../../components/Views/AppSafeView'; // Ensure this is the correct path and AppSafeView is a React component
+import AppSafeView from '../../components/views/AppSafeView'; // Ensure this is the correct path and AppSafeView is a React component
 import { sharedPaddingHorizontal } from '../../styles/sharedStyles'
 import { IMAGES } from '../../constants/images-paths';
 import { s, vs } from 'react-native-size-matters';

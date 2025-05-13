@@ -4,7 +4,7 @@ import { AppColors } from '../../styles/colors';
 import { IS_ANDROID } from '../../constants/constants';
 
 interface AppSafeViewProps {
-  children: React.ReactNode,
+  children?: React.ReactNode,
   style?: ViewStyle | ViewStyle[]
 }
 
