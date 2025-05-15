@@ -2,12 +2,13 @@ import { View, Text } from 'react-native'
 import React from 'react'
 import AppSafeView from '../../components/views/AppSafeView'
 import HomeHeader from '../../components/headers/HomeHeader'
+import AppText from '../../components/texts/AppText'
 
 const CartScreen = () => {
   return (
     <AppSafeView>/Text
       <HomeHeader />
-      <Text>Cart Screen</Text>
+      <AppText style={{fontSize: 60}}>Cart Screen</AppText>
     </AppSafeView>
   )
 }
