@@ -1,16 +1,18 @@
-import { View, Text } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
 import AppSafeView from '../../components/views/AppSafeView'
 import HomeHeader from '../../components/headers/HomeHeader'
 import AppText from '../../components/texts/AppText'
+import EmptyCart from './EmptyCart'
 
 const CartScreen = () => {
   return (
-    <AppSafeView>/Text
+    <AppSafeView>
       <HomeHeader />
-      <AppText style={{fontSize: 60}}>Cart Screen</AppText>
+      <EmptyCart />
     </AppSafeView>
   )
 }
 
-export default CartScreen
+export default CartScreen;
+
