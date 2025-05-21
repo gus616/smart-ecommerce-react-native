@@ -13,7 +13,12 @@ const CartScreen = () => {
     <AppSafeView>
       <HomeHeader />
       {/* <EmptyCart /> */}
-      <CartItem product={products[0]} />
+      <CartItem cartItem={
+        {
+          quantity: 1,
+          product: products[0]
+        }
+      } />
     </AppSafeView>
   )
 }
