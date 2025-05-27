@@ -8,11 +8,14 @@ import { AppFonts } from '../../styles/fonts';
 import { AntDesign, FontAwesome } from '@expo/vector-icons';
 
 interface CartItemProps {
-    product: Product
+    product: Product,
+    onDeletePress: () => void,
+    onIncreasePress: () => void,
+    onDecreasePress: () => void,
+    quantity: number,
 };
 
-const CartItem: FC<CartItemProps> = ({ product }) => {
-    const [quantity, setQuantity] = useState(1);
+const CartItem: FC<CartItemProps> = ({ product, onDeletePress, onDecreasePress, onIncreasePress, quantity }) => {
     const [deleteButtonPressed, setDeleteButtonPressed] = useState(false);
     return (
         <View style={styles.container}>
@@ -30,11 +33,11 @@ const CartItem: FC<CartItemProps> = ({ product }) => {
                 <AppText style={styles.textPrice}>${product.price}</AppText>
 
                 <View style={styles.quantityContainer}>
-                    <Pressable style={styles.iconButton} onPress={() => { setQuantity(quantity - 1); setDeleteButtonPressed(false) }}>
+                    <Pressable style={styles.iconButton} onPress={onDecreasePress}>
                         <FontAwesome name='minus' size={s(10)} color={AppColors.primary} />
                     </Pressable>
                     <AppText style={styles.textQuantity}>{quantity}</AppText>
-                    <Pressable style={styles.iconButton} onPress={() => { setQuantity(quantity + 1); setDeleteButtonPressed(false) }}>
+                    <Pressable style={styles.iconButton} onPress={onIncreasePress}>
                         <FontAwesome name='plus' size={s(10)} color={AppColors.primary} />
                     </Pressable>
                 </View>
@@ -42,7 +45,7 @@ const CartItem: FC<CartItemProps> = ({ product }) => {
             {/* delete button container */}
             <View style={!deleteButtonPressed ? styles.deleteContainer : { ...styles.deleteContainer, backgroundColor: AppColors.lightGray }}>
                 <Pressable
-                    onPress={() => console.log('Delete pressed')}
+                    onPress={() => onDeletePress }
                     onPressIn={() => setDeleteButtonPressed(true)}
                     onPressOut={() => setDeleteButtonPressed(false)}
                     android_ripple={{ color: AppColors.lightGray }}
