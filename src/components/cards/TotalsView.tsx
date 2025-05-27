@@ -26,7 +26,8 @@ const TotalsView: FC<TotalsViewProps> = ({ itemsPrice = 0, taxes = 0, shippingFe
                 <AppText style={styles.textTitle}>Shipping Fee:</AppText>
                 <AppText style={styles.textPrice}>{formatCurrency(shippingFee)}</AppText>
             </View>
-            <View style={styles.separator} >
+            <View style={styles.separator} />
+            <View style={styles.row}>
                 <AppText style={styles.textTitle}>Order Total:</AppText>
                 <AppText style={styles.textPrice}>{formatCurrency(itemsPrice + taxes + shippingFee)}</AppText>
             </View>
