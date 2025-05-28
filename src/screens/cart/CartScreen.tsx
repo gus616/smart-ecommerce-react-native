@@ -11,8 +11,11 @@ import TotalsView from '../../components/cards/TotalsView'
 import { FlatList } from 'react-native-gesture-handler'
 import { sharedPaddingHorizontal } from '../../styles/sharedStyles'
 import AppButton from '../../components/buttons/AppButton'
+import { useNavigation } from '@react-navigation/native'
+import { vs } from 'react-native-size-matters'
 
 const CartScreen = () => {
+  const navigation = useNavigation();
   return (
     <AppSafeView>
       <HomeHeader />
@@ -39,7 +42,7 @@ const CartScreen = () => {
           taxes={0.15 * (products[0].price * 1)} // Example tax calculation
           shippingFee={5.00} // Example shipping fee
         />
-        <AppButton title='Checkout' onPress={() => console.log('Checkout pressed')} />
+        <AppButton style={{marginVertical: vs(8)}}  title='Checkout' onPress={() => {navigation.navigate("CheckoutScreen")}}/>
       </View>
     </AppSafeView>
   )
